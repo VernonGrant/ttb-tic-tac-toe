@@ -1,5 +1,8 @@
 on:
-  push
+  workflow_dispatch:
+  push:
+    branches:
+      - development
 
 jobs:
   cache-and-install:
