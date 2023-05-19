@@ -1,3 +1,3 @@
-import {exampleMethod} from './modules/game-board';
+import {exampleMethod} from './src/game-board';
 
-exampleMethod();
+console.log(exampleMethod());

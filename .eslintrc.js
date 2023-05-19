@@ -1,4 +1,5 @@
-export default {
+module.exports = {
+    "ignorePatterns": ["*.eslintrc.js"],
     "env": {
         "browser": true,
         "es2021": true
@@ -15,4 +16,4 @@ export default {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-}
+};
