@@ -1,0 +1,25 @@
+:root {
+    --color-black: #171719;
+    --color-black-alt: #29292B;
+}
+
+/* Normalizations */
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+small {
+  font-size: 80%;
+}
+
+/* General */
+
+body {
+  background-color: var(--color-black);
+}

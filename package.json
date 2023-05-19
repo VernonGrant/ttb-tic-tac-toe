@@ -1,0 +1,22 @@
+{
+  "name": "ttb-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Technical test for TwoThreeBird that involes the development of Tic Tac Toe.",
+  "scripts": {
+    "serve": "vite"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VernonGrant/ttb-tic-tac-toe.git"
+  },
+  "author": "Vernon Grant <vernon@ruppell.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VernonGrant/ttb-tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/VernonGrant/ttb-tic-tac-toe#readme",
+  "devDependencies": {
+    "eslint": "^8.40.0"
+  }
+}

@@ -1,2 +1,3 @@
-# ttb-tic-tac-toe
+# TwoThreeBird Tic Tac Toe
+
 Technical test given by TwoThreeBird
