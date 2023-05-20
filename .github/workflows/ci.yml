@@ -6,7 +6,7 @@ on:
     branches: [ main, development ]
 
 jobs:
-  cache-and-install:
+  installation-and-testing:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
