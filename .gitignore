@@ -55,3 +55,9 @@ out
 
 # Mac
 .DS_Store
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Temp
+/tests-examples/

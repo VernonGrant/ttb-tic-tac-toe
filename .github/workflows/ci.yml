@@ -1,33 +1,48 @@
+name: Continuous Integration
+
 on:
   workflow_dispatch:
   push:
-    branches:
-      - development
+    branches: [ main, development ]
 
 jobs:
   cache-and-install:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Installing Node.js (v16)
+      - name: Install Node.js (v16)
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
       - uses: pnpm/action-setup@v2
-        name: Installing PNPM
+        name: Install PNPM
         id: pnpm-install
         with:
           version: 8
           run_install: false
 
-      - name: Installing Dependencies
+      - name: Install Dependencies
         run: pnpm install
 
-      - name: Running Eslint Checks
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Unit Tests
+        run: pnpm run test-unit
+
+      - name: Run Playwright tests
+        run: pnpm run test-e2e
+
+      - name: Run Eslint Checks
         run: pnpm run lint
 
-      - name: Running Unit Tests
-        run: pnpm run test
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
