@@ -1,3 +1,6 @@
+/**
+ * Immutable object that holds the identifiers for the players.
+ */
 const Players = Object.freeze({
     Circle: 1,
     Cross: 2,
@@ -6,10 +9,9 @@ const Players = Object.freeze({
 /**
  * Returns the active players identifier.
  *
- * @param {Boolean} togglePlayer When true, toggle the active player.
+ * @param {Boolean} togglePlayer When true, change the active player.
  *
- * @returns {Number} Represents the current player, comparable with entries of
- * Players.
+ * @returns {Number} Represents the active player.
  */
 function activePlayer(togglePlayer = false) {
     if (activePlayer.player === undefined) {
