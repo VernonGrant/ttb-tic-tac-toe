@@ -1,3 +1,7 @@
-import {exampleMethod} from './src/game-board';
+import { initializeIndicator } from "./src/indicator";
+import { initializePanel } from "./src/panel";
+import { initializeTiles } from "./src/tiles";
 
-console.log(exampleMethod());
+initializeTiles("#tiles");
+initializePanel("#panel");
+initializeIndicator("#indicator");
