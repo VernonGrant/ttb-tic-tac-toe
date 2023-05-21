@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Test and Deploy
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches: [ main, development ]
 
 jobs:
-  installation-and-testing:
+  testing-and-deployment:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
