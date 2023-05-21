@@ -1,4 +1,4 @@
-import { Players, activePlayer } from "./players";
+import { Players, activePlayer } from "./players.js";
 
 /**
  * Immutable object that holds the indicator container element and its selector.

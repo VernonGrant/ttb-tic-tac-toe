@@ -1,7 +1,7 @@
-import { GameState, gameStatus } from "./game";
-import { indicatorUpdate } from "./indicator";
-import { updatePanel, hidePanel, showPanel } from "./panel";
-import { Players, activePlayer } from "./players";
+import { GameState, gameStatus } from "./game.js";
+import { indicatorUpdate } from "./indicator.js";
+import { updatePanel, hidePanel, showPanel } from "./panel.js";
+import { Players, activePlayer } from "./players.js";
 
 /**
  * Immutable object that holds the tiles container element and its selector.
