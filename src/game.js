@@ -5,9 +5,14 @@ const GameState = Object.freeze({
 });
 
 /**
+ * Takes in the current state, extracted from the tiles as a one dimensional
+ * array. Where 0 represents neutrality, 1 represents circle and 2 represents
+ * cross.
  *
- * @param {Array[Number]} state
- * @param {Number} player
+ * @param {Array[Number]} state Array of tile states.
+ * @param {Number} player The player to check against.
+ *
+ * @returns {GameState} The numerical represents of the game state.
  */
 function gameStatus(state = [], player) {
     const stateLength = state.length;
