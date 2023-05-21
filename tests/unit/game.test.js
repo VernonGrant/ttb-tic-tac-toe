@@ -664,7 +664,7 @@ const WinPermutations = [
     [2, 2, 1, 2, 2, 1, 1, 1, 1],
 ];
 
-test("Wins for all game permutations when occupying rows, columns or diagonals .", () => {
+test("Wins for all game permutations when occupying rows, columns or diagonals.", () => {
     for (let i = 0; i < WinPermutations.length; i++) {
         const permutation = WinPermutations[i];
         expect(gameStatus(permutation, 1)).toBe(GameState.Player);

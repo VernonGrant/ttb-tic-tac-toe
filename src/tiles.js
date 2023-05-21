@@ -3,13 +3,16 @@ import { indicatorUpdate } from "./indicator";
 import { updatePanel, hidePanel, showPanel } from "./panel";
 import { Players, activePlayer } from "./players";
 
+/**
+ * Immutable object that holds the tiles container element and its selector.
+ */
 const Tiles = {
     selector: undefined,
     element: undefined
 };
 
 /**
- * Extracts the states of tiles into a one dimensional array.
+ * Extracts the tile states into a one dimensional array.
  *
  * @returns {Array{Number}}
  */
@@ -24,6 +27,11 @@ function extractTileStates() {
     return states;
 }
 
+/**
+ * Removes all click event listeners from unused tiles.
+ *
+ * @returns {void}
+ */
 function clearActiveTileEvents() {
     const tiles = Tiles.element.childNodes;
 
@@ -36,7 +44,13 @@ function clearActiveTileEvents() {
     }
 }
 
-/** @type {Event} */
+/**
+ * Gets called once a tile gets click.
+ *
+ * @param {Event} event The event handle coming from the tile click.
+ *
+ * @returns {void}
+ */
 function onTileClick(event) {
     // Change the state of the clicked on tile, based on the current player.
     event.target.dataset.state = activePlayer();
@@ -44,13 +58,14 @@ function onTileClick(event) {
     // Remove the event listener of the clicked on tile.
     event.target.removeEventListener("click", onTileClick);
 
+    // Panel reset button click function.
     const onResetButtonClick = function () {
         resetTiles();
         hidePanel();
     };
 
+    // Get the current games state at this point in time.
     const status = gameStatus(extractTileStates(), activePlayer());
-
     if (status === GameState.Draw) {
         clearActiveTileEvents();
         updatePanel("There's no winner", "Draw", onResetButtonClick);
@@ -70,23 +85,40 @@ function onTileClick(event) {
     }
 }
 
+/**
+ * Setups the initial tiles and its constant values, should only be called once.
+ *
+ * @param {string} selector
+ *
+ * @returns {void}
+ */
 function initializeTiles(selector) {
     Tiles.selector = selector;
     Tiles.element = document.querySelector(selector);
     Object.freeze(Tiles);
 
-    setupTiles();
+    constructTiles();
 }
 
+/**
+ * Destroys all the current tiles and reconstructs new ones.
+ *
+ * @returns {void}
+ */
 function resetTiles() {
     const board = Tiles.element;
     while (board.firstChild) {
         board.removeChild(board.lastChild);
     }
-    setupTiles();
+    constructTiles();
 }
 
-function setupTiles() {
+/**
+ * Handles the creation of all tiles.
+ *
+ * @returns {void}
+ */
+function constructTiles() {
     for (let i = 0; i < 9; i++) {
         const tile = document.createElement("div");
         tile.dataset.index = i;
@@ -98,8 +130,4 @@ function setupTiles() {
     }
 }
 
-function exampleMethod() {
-    return 5;
-}
-
-export { initializeTiles, exampleMethod };
+export { initializeTiles };

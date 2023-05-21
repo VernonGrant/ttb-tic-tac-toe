@@ -1,26 +1,47 @@
 import { Players, activePlayer } from "./players";
 
+/**
+ * Immutable object that holds the indicator container element and its selector.
+ */
 const Indicator = {
     selector: undefined,
     element: undefined
 };
 
+/**
+ * Setups the initial indicator and its constant values, should only be
+ * called once.
+ *
+ * @param {string} selector The selector of the indicator container.
+ *
+ * @returns {void}
+ */
 function initializeIndicator(selector) {
     Indicator.selector = selector;
     Indicator.element = document.querySelector(selector);
     Object.freeze(Indicator);
 
-    Indicator.element.innerHTML = `
-        <div class="circle"></div>
-        <div class="cross"></div>`;
+    const circle = document.createElement("div");
+    circle.classList.add("circle");
+
+    const cross = document.createElement("div");
+    cross.classList.add("cross");
 
     if (activePlayer() === Players.Circle) {
-        Indicator.element.querySelector(".circle").classList.add("active");
+        circle.classList.add("active");
     } else {
-        Indicator.element.querySelector(".cross").classList.add("active");
+        cross.classList.add("active");
     }
+
+    Indicator.element.append(circle, cross);
 }
 
+
+/**
+ * Updates the indicator to match the current player.
+ *
+ * @returns {void}
+ */
 function indicatorUpdate() {
     const cross = Indicator.element.querySelector(".cross");
     const circle = Indicator.element.querySelector(".circle");

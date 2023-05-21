@@ -1,3 +1,6 @@
+/**
+ * Immutable object that holds the game state identifiers.
+ */
 const GameState = Object.freeze({
     Pending: 0,
     Player: 1,
