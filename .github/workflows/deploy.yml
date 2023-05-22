@@ -3,7 +3,8 @@ name: Test and Deploy
 on:
   workflow_dispatch:
   push:
-    branches: [ main, development ]
+    branches:
+      - main
 
 jobs:
   testing-and-deployment:
