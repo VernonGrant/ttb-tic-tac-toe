@@ -68,12 +68,12 @@ function onTileClick(event) {
     const status = gameStatus(extractTileStates(), activePlayer());
     if (status === GameState.Draw) {
         clearActiveTileEvents();
-        updatePanel("There's no winner", "Draw", onResetButtonClick);
+        updatePanel("there's no winner", "draw", onResetButtonClick);
         showPanel();
     } else if (status === GameState.Player) {
         clearActiveTileEvents();
         updatePanel(
-            "The winner is",
+            "the winner is",
             activePlayer() === Players.Circle ? "circle" : "cross",
             onResetButtonClick
         );

@@ -1,4 +1,3 @@
-
 import { expect, test } from "vitest";
 import { GameState, gameStatus } from "../../src/game";
 

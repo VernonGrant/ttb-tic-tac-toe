@@ -5,16 +5,16 @@ test.beforeEach(async ({ page }) => {
     await page.goto("/");
 });
 
-test("The default player should be Circle.", async ({ page }) => {
-    const tiles =  await page.locator(".tile");
+test("On the first turn, the player should be circle.", async ({ page }) => {
+    const tiles = page.locator(".tile");
 
     await expect(tiles.nth(0)).toHaveAttribute("data-state", "0");
     await tiles.nth(0).click();
     await expect(tiles.nth(0)).toHaveAttribute("data-state", Players.Circle.toString());
 });
 
-test("The second player should be Cross.", async ({ page }) => {
-    const tiles =  await page.locator(".tile");
+test("On the second turn, the player should be cross.", async ({ page }) => {
+    const tiles = page.locator(".tile");
 
     await expect(tiles.nth(0)).toHaveAttribute("data-state", "0");
     await tiles.nth(0).click();
@@ -24,8 +24,8 @@ test("The second player should be Cross.", async ({ page }) => {
     await expect(tiles.nth(1)).toHaveAttribute("data-state", Players.Cross.toString());
 });
 
-test("The active player should cycle between rounds.", async ({ page }) => {
-    const tiles =  await page.locator(".tile");
+test("On each turn the player should be cycled.", async ({ page }) => {
+    const tiles = page.locator(".tile");
 
     await tiles.nth(0).click();
     await expect(tiles.nth(0)).toHaveAttribute("data-state", Players.Circle.toString());
