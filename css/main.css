@@ -218,7 +218,7 @@ small {
 #indicator {
   display: flex;
   position: absolute;
-  bottom: 10vh;
+  bottom: 5vh;
   left: auto;
   right: auto;
 }
