@@ -24,7 +24,7 @@ test("On the second turn, the player should be cross.", async ({ page }) => {
     await expect(tiles.nth(1)).toHaveAttribute("data-state", Players.Cross.toString());
 });
 
-test("On each turn the player should be cycled.", async ({ page }) => {
+test("On each turn the active player should be changed.", async ({ page }) => {
     const tiles = page.locator(".tile");
 
     await tiles.nth(0).click();

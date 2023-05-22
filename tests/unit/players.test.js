@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { Players, activePlayer } from "../../src/players";
 
-test("The default player should be Circle.", () => {
+test("The default player should be circle.", () => {
     expect(activePlayer()).toBe(Players.Circle);
 });
 

@@ -7,7 +7,8 @@ const Players = Object.freeze({
 });
 
 /**
- * Returns the active players identifier.
+ * Returns the active players identifier. Handles it's own internal state, by
+ * simulating a static variable like behavior.
  *
  * @param {Boolean} togglePlayer When true, change the active player.
  *

@@ -1,19 +1,19 @@
 import { expect, test } from "vitest";
 import { GameState, gameStatus } from "../../src/game";
 
-test("Should wins when occupying an entire row.", () => {
+test("Should win when occupying an entire row.", () => {
     expect(gameStatus([1, 1, 1, 0, 0, 0, 0, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 0, 1, 1, 1, 0, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 0, 0, 0, 0, 1, 1, 1], 1)).toBe(GameState.Player);
 });
 
-test("Should wins when occupying an entire column.", () => {
+test("Should win when occupying an entire column.", () => {
     expect(gameStatus([1, 0, 0, 1, 0, 0, 1, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 1, 0, 0, 1, 0, 0, 1, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 1, 0, 0, 1, 0, 0, 1], 1)).toBe(GameState.Player);
 });
 
-test("Should wins when occupying one of two diagonals.", () => {
+test("Should win when occupying one of two diagonals.", () => {
     expect(gameStatus([1, 0, 0, 0, 1, 0, 0, 0, 1], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 1, 0, 1, 0, 1, 0, 0], 1)).toBe(GameState.Player);
 });
@@ -663,7 +663,7 @@ const WinPermutations = [
     [2, 2, 1, 2, 2, 1, 1, 1, 1],
 ];
 
-test("Should wins for all player permutations when occupying rows, columns or diagonals.", () => {
+test("Should win for all player permutations when occupying rows, columns or diagonals.", () => {
     for (let i = 0; i < WinPermutations.length; i++) {
         const permutation = WinPermutations[i];
         expect(gameStatus(permutation, 1)).toBe(GameState.Player);
@@ -692,7 +692,7 @@ const DrawPermutations = [
     [2, 2, 1, 1, 1, 2, 2, 1, 1]
 ];
 
-test("Should draws when all positions are taken without a winner.", () => {
+test("Should draw when all positions are taken without a winner.", () => {
     for (let i = 0; i < DrawPermutations.length; i++) {
         const permutation = DrawPermutations[i];
         expect(gameStatus(permutation, 1)).toBe(GameState.Draw);
