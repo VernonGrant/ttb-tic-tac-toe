@@ -36,7 +36,6 @@ function initializeIndicator(selector) {
     Indicator.element.append(circle, cross);
 }
 
-
 /**
  * Updates the indicator to match the current player.
  *

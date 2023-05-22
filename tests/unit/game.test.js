@@ -1,25 +1,24 @@
-
 import { expect, test } from "vitest";
 import { GameState, gameStatus } from "../../src/game";
 
-test("Wins when occupying an entire row.", () => {
+test("Should wins when occupying an entire row.", () => {
     expect(gameStatus([1, 1, 1, 0, 0, 0, 0, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 0, 1, 1, 1, 0, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 0, 0, 0, 0, 1, 1, 1], 1)).toBe(GameState.Player);
 });
 
-test("Wins when occupying an entire column.", () => {
+test("Should wins when occupying an entire column.", () => {
     expect(gameStatus([1, 0, 0, 1, 0, 0, 1, 0, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 1, 0, 0, 1, 0, 0, 1, 0], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 1, 0, 0, 1, 0, 0, 1], 1)).toBe(GameState.Player);
 });
 
-test("Wins when occupying one of two diagonals.", () => {
+test("Should wins when occupying one of two diagonals.", () => {
     expect(gameStatus([1, 0, 0, 0, 1, 0, 0, 0, 1], 1)).toBe(GameState.Player);
     expect(gameStatus([0, 0, 1, 0, 1, 0, 1, 0, 0], 1)).toBe(GameState.Player);
 });
 
-test("Pending when there's rounds left and no winner was found.", () => {
+test("Should be pending when there's rounds left and no winner was found.", () => {
     expect(gameStatus([0, 0, 0, 0, 0, 0, 0, 0, 0], 1)).toBe(GameState.Pending);
     expect(gameStatus([1, 0, 0, 0, 0, 0, 0, 0, 0], 1)).toBe(GameState.Pending);
     expect(gameStatus([1, 0, 2, 0, 1, 0, 0, 2, 0], 1)).toBe(GameState.Pending);
@@ -664,7 +663,7 @@ const WinPermutations = [
     [2, 2, 1, 2, 2, 1, 1, 1, 1],
 ];
 
-test("Wins for all game permutations when occupying rows, columns or diagonals.", () => {
+test("Should wins for all player permutations when occupying rows, columns or diagonals.", () => {
     for (let i = 0; i < WinPermutations.length; i++) {
         const permutation = WinPermutations[i];
         expect(gameStatus(permutation, 1)).toBe(GameState.Player);
@@ -693,7 +692,7 @@ const DrawPermutations = [
     [2, 2, 1, 1, 1, 2, 2, 1, 1]
 ];
 
-test("Draws when all positions are taken without a winner.", () => {
+test("Should draws when all positions are taken without a winner.", () => {
     for (let i = 0; i < DrawPermutations.length; i++) {
         const permutation = DrawPermutations[i];
         expect(gameStatus(permutation, 1)).toBe(GameState.Draw);
