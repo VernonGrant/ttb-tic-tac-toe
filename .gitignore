@@ -55,9 +55,8 @@ out
 
 # Mac
 .DS_Store
+
+# Playwrite
 /test-results/
 /playwright-report/
 /playwright/.cache/
-
-# Temp
-/tests-examples/

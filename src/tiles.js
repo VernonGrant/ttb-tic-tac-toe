@@ -1,6 +1,6 @@
 import { GameState, gameStatus } from "./game.js";
 import { indicatorUpdate } from "./indicator.js";
-import { updatePanel, hidePanel, showPanel } from "./panel.js";
+import { updatePanel, showPanel } from "./panel.js";
 import { Players, activePlayer } from "./players.js";
 
 /**
@@ -61,7 +61,7 @@ function onTileClick(event) {
     // Panel reset button click function.
     const onResetButtonClick = function () {
         resetTiles();
-        hidePanel();
+        showPanel(false);
     };
 
     // Get the current games state at this point in time.
@@ -86,7 +86,7 @@ function onTileClick(event) {
 }
 
 /**
- * Setups the initial tiles and its constant values, should only be called once.
+ * Setups the initial tiles, should only be called once.
  *
  * @param {string} selector
  *

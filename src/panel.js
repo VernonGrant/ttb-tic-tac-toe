@@ -24,21 +24,19 @@ function updatePanel(preTitle, title, onReset) {
 }
 
 /**
- * Hides the panel.
+ * Shows or hides the panel, based on the provided boolean. Shows when true and
+ * hides when false.
+ *
+ * @param {Boolean} show The control boolean.
  *
  * @returns {void}
  */
-function hidePanel() {
-    Panel.element.classList.remove("show");
-}
-
-/**
- * Shows the panel.
- *
- * @returns {void}
- */
-function showPanel() {
-    Panel.element.classList.add("show");
+function showPanel(show = true) {
+    if (show === true) {
+        Panel.element.classList.add("show");
+    } else {
+        Panel.element.classList.remove("show");
+    }
 }
 
 /**
@@ -53,6 +51,8 @@ function initializePanel(selector) {
     Panel.element = document.querySelector(selector);
     Object.freeze(Panel);
 
+    // Setting innerHTML requires a dom refresh, so instead we create individual
+    // elements.
     const panelContent = document.createElement("div");
     panelContent.classList.add("panel-content");
 
@@ -72,4 +72,4 @@ function initializePanel(selector) {
     Panel.element.append(panelContent);
 }
 
-export { initializePanel, updatePanel, showPanel, hidePanel };
+export { initializePanel, updatePanel, showPanel };
