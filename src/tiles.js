@@ -14,7 +14,7 @@ const Tiles = {
 /**
  * Extracts the tile states into a one dimensional array.
  *
- * @returns {Array{Number}}
+ * @returns {Array}
  */
 function extractTileStates() {
     const tiles = Tiles.element.childNodes;
