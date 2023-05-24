@@ -15,7 +15,7 @@ const GameState = Object.freeze({
  * @param {Array[Number]} state The array of tile states.
  * @param {Number} player The player to check against.
  *
- * @returns {GameState} The numerical represents of the game state.
+ * @returns {Number} The numerical represents of the game state.
  */
 function gameStatus(state = [], player) {
     const stateLength = state.length;
